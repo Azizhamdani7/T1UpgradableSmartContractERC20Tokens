@@ -9,14 +9,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.3",
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "chai": "^4.3.6",
+    "ethers": "^5.7.1",
     "hardhat": "^2.11.2"
   },
   "dependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.1.1",
     "@openzeppelin/contracts": "^4.7.3",
     "@openzeppelin/contracts-upgradeable": "^4.8.0-rc.1",
-    "@openzeppelin/hardhat-upgrades": "^1.21.0",
-    "ethers": "^5.7.1"
+    "@openzeppelin/hardhat-upgrades": "^1.21.0"
   }
 }

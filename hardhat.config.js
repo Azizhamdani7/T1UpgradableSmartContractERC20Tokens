@@ -1,19 +1,41 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
 require("@openzeppelin/hardhat-upgrades");
+require("@nomicfoundation/hardhat-chai-matchers");
 
-/** @type import('hardhat/config').HardhatUserConfig */
+const { mnemonic } = require('./secrets.json');
 
-const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL
-const PRIVATE_KEY = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+task("accounts", "Prints the list of accounts", async () => {
+  const accounts = await ethers.getSigners();
 
+  for (const account of accounts) {
+    console.log(account.address);
+  }
+});
 module.exports = {
-  defaultNetwork: "rinkeby",
+  defaultNetwork: "testnet",
   networks: {
-    rinkeby: {
-      url: RINKEBY_RPC_URL,
-      accounts:[PRIVATE_KEY]
-    } 
+    localhost: {
+      url: "http://127.0.0.1:8545"
+    },
+    hardhat: {
+    },
+    testnet: {
+      url: "https://data-seed-prebsc-1-s1.binance.org:8545",
+      chainId: 97,
+      gasPrice: 20000000000,
+      accounts: {mnemonic: mnemonic}
+    }
   },
-  solidity: "0.8.17",
+  etherscan: {
+    apiKey: "W3XSEQFZM9UBC2NS4ND7S4QPFQMB9MDSIE",
+  },
+  solidity: {
+  version: "0.8.17",
+  settings: {
+    optimizer: {
+      enabled: true
+    }
+   }
+  }
 };

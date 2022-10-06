@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.17;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
-contract ERC20Token is Initializable, ERC20Upgradeable, OwnableUpgradeable, UUPSUpgradeable {
+contract ERC20TokenV2 is Initializable, ERC20Upgradeable, OwnableUpgradeable, UUPSUpgradeable {
 
     mapping(address => bool) public authorized;
 
@@ -43,7 +43,6 @@ contract ERC20Token is Initializable, ERC20Upgradeable, OwnableUpgradeable, UUPS
         _mint(to, amount);
     }
 
-    //comment added 
 
     function _authorizeUpgrade(address newImplementation)
         internal
