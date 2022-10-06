@@ -43,6 +43,8 @@ contract ERC20Token is Initializable, ERC20Upgradeable, OwnableUpgradeable, UUPS
         _mint(to, amount);
     }
 
+    //comment added 
+
     function _authorizeUpgrade(address newImplementation)
         internal
         ownerOrAuthorized
